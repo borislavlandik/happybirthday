@@ -19,5 +19,24 @@
             <span>РоЖД -ЕНИЯ!</span>
         </h1>
     </header>
+
+    <div class="center dark-theme">
+        <div class="input">
+            <input type="checkbox" id="dark-theme" name="dark-theme">
+            <label for="dark-theme">Темная тема</label>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("dark-theme").addEventListener("change", (event) => {
+            const isDarkTheme = event.target.checked;
+
+            if (isDarkTheme) {
+                document.body.classList.add('body_dark');
+            } else {
+                document.body.classList.remove('body_dark');
+            }
+        });
+    </script>
 </body>
 </html>
