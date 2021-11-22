@@ -99,6 +99,10 @@ html, body, h1 {
     font-size: 2em;
 }
 
+.input label {
+    font-family: var(--font-1);
+}
+
 input[type="checkbox"] {
     position: absolute;
     z-index: -1;
@@ -133,6 +137,40 @@ input[type="checkbox"]:checked + label::before {
     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGHRFWHRBdXRob3IAbWluZWNyYWZ0aW5mby5jb23fZidLAAAAk0lEQVQ4y2P4//8/AyUYwcAD+OzN/oMwshjRBoA0Gr8+DcbIhhBlAEyz+qZZ/7WPryHNAGTNMOxpJvo/w0/uP0kGgGwGaZbrKgfTGnLc/0nyAgiDbEY2BCRGdCDCnA2yGeYVog0Aae5MV4c7Gzk6CRqAbDM2w/EaQEgzXgPQnU2SAcTYjNMAYm3GaQCxNuM0gFwMAPUKd8XyBVDcAAAAAElFTkSuQmCC'), linear-gradient(135deg, #8BB0C2 0%, #FFF 100%);
 }
 
+input[type="radio"] {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+input[type="radio"] + label {
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+}
+
+input[type="radio"] + label::before {
+    content: '';
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    flex-shrink: 0;
+    flex-grow: 0;
+    border: 1px solid #adb5bd;
+    border-radius: 0.25em;
+    margin-right: 0.5em;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50% 50%;
+}
+
+input[type="radio"]:checked + label::before {
+    border-color: #0b76ef;
+    background-size: 100%;
+    background-color: #0b76ef;
+    background-image: url('assets/parrot2.gif'), linear-gradient(135deg, #8BB0C2 0%, #FFF 100%);
+}
+
 .dark-theme {
     margin: 40px 0;
 }
@@ -143,7 +181,7 @@ input[type="checkbox"]:checked + label::before {
 
 .form__title {
     font-size: 2.5em;
-    font-family: var(--font-2);
+    font-family: var(--font-4);
     color: var(--font-color-second);
     line-height: 50px;
 
@@ -183,94 +221,147 @@ input[type="checkbox"]:checked + label::before {
     min-width: 400px;
 }
 
-.image {
-    font-size: 60px;
+.image_villagers {
+    width: 100vw;
+    height: 300px;
+}
+
+.image_parrot {
+    height: 300px;
+}
+
+.image_phantom {
+    width: 100vw;
+    height: 300px;
+}
+
+.image_cow {
+    width: 100%;
 }
 
 .body_dark .dark-rainbow-box {
     animation: rainbow-box 3s linear infinite;
 }
 
+.bottom-hide {
+    margin-top: calc(50 * 100vh);
+}
+
+#get-result {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    width: 100%;
+}
+
+.hide {
+    display: none;
+}
+
+.question__options {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.question__options_reverse .question__radio-group {
+    order: -1;
+}
+
+.button-help {
+    font-size: 0.7em;
+}
+
+audio {
+    width: 100%;
+
+    height: 50px;
+}
+
 @keyframes rainbow-box {
     from {
         box-shadow:
-                0.04em 0.04em #ff0000,
-                0.08em 0.08em #ff7f00,
-                0.12em 0.12em #ffff00,
-                0.16em 0.16em #00ff00,
-                0.20em 0.20em #0000ff,
-                0.24em 0.24em #4b0082,
-                0.28em 0.28em #8f00ff;
+                0.5em 0.5em #ff0000,
+                0.6em 0.6em #ff7f00,
+                0.7em 0.7em #ffff00,
+                0.8em 0.8em #00ff00,
+                0.9em 0.9em #0000ff,
+                1.0em 1.0em #4b0082,
+                1.1em 1.1em #8f00ff;
     }
     15% {
         box-shadow:
-                0.04em 0.04em #8f00ff,
-                0.08em 0.08em #ff0000,
-                0.12em 0.12em #ff7f00,
-                0.16em 0.16em #ffff00,
-                0.20em 0.20em #00ff00,
-                0.24em 0.24em #0000ff,
-                0.28em 0.28em #4b0082;
+                0.5em 0.5em #8f00ff,
+                0.6em 0.6em #ff0000,
+                0.7em 0.7em #ff7f00,
+                0.8em 0.8em #ffff00,
+                0.9em 0.9em #00ff00,
+                1.0em 1.0em #0000ff,
+                1.1em 1.1em #4b0082;
     }
     30% {
         box-shadow:
-                0.04em 0.04em #4b0082,
-                0.08em 0.08em #8f00ff,
-                0.12em 0.12em #ff0000,
-                0.16em 0.16em #ff7f00,
-                0.20em 0.20em #ffff00,
-                0.24em 0.24em #00ff00,
-                0.28em 0.28em #0000ff;
+                0.5em 0.5em #4b0082,
+                0.6em 0.6em #8f00ff,
+                0.7em 0.7em #ff0000,
+                0.8em 0.8em #ff7f00,
+                0.9em 0.9em #ffff00,
+                1.0em 1.0em #00ff00,
+                1.1em 1.1em #0000ff;
     }
     45% {
         box-shadow:
-                0.04em 0.04em #0000ff,
-                0.08em 0.08em #4b0082,
-                0.12em 0.12em #8f00ff,
-                0.16em 0.16em #ff0000,
-                0.20em 0.20em #ff7f00,
-                0.24em 0.24em #ffff00,
-                0.28em 0.28em #00ff00;
+                0.5em 0.5em #0000ff,
+                0.6em 0.6em #4b0082,
+                0.7em 0.7em #8f00ff,
+                0.8em 0.8em #ff0000,
+                0.9em 0.9em #ff7f00,
+                1.0em 1.0em #ffff00,
+                1.1em 1.1em #00ff00;
     }
     60% {
         box-shadow:
-                0.04em 0.04em #00ff00,
-                0.08em 0.08em #0000ff,
-                0.12em 0.12em #4b0082,
-                0.16em 0.16em #8f00ff,
-                0.20em 0.20em #ff0000,
-                0.24em 0.24em #ff7f00,
-                0.28em 0.28em #ffff00;
+                0.5em 0.5em #00ff00,
+                0.6em 0.6em #0000ff,
+                0.7em 0.7em #4b0082,
+                0.8em 0.8em #8f00ff,
+                0.9em 0.9em #ff0000,
+                1.0em 1.0em #ff7f00,
+                1.1em 1.1em #ffff00;
     }
     75% {
         box-shadow:
-                0.04em 0.04em #ffff00,
-                0.08em 0.08em #00ff00,
-                0.12em 0.12em #0000ff,
-                0.16em 0.16em #4b0082,
-                0.20em 0.20em #8f00ff,
-                0.24em 0.24em #ff0000,
-                0.28em 0.28em #ff7f00;
+                0.5em 0.5em #ffff00,
+                0.6em 0.6em #00ff00,
+                0.7em 0.7em #0000ff,
+                0.8em 0.8em #4b0082,
+                0.9em 0.9em #8f00ff,
+                1.0em 1.0em #ff0000,
+                1.1em 1.1em #ff7f00;
     }
     90% {
         box-shadow:
-                0.04em 0.04em #ff7f00,
-                0.08em 0.08em #ffff00,
-                0.12em 0.12em #00ff00,
-                0.16em 0.16em #0000ff,
-                0.20em 0.20em #4b0082,
-                0.24em 0.24em #8f00ff,
-                0.28em 0.28em #ff0000;
+                0.5em 0.5em #ff7f00,
+                0.6em 0.6em #ffff00,
+                0.7em 0.7em #00ff00,
+                0.8em 0.8em #0000ff,
+                0.9em 0.9em #4b0082,
+                1.0em 1.0em #8f00ff,
+                1.1em 1.1em #ff0000;
     }
     to {
         box-shadow:
-                0.04em 0.04em #ff0000,
-                0.08em 0.08em #ff7f00,
-                0.12em 0.12em #ffff00,
-                0.16em 0.16em #00ff00,
-                0.20em 0.20em #0000ff,
-                0.24em 0.24em #4b0082,
-                0.28em 0.28em #8f00ff;
+                0.5em 0.5em #ff0000,
+                0.6em 0.6em #ff7f00,
+                0.7em 0.7em #ffff00,
+                0.8em 0.8em #00ff00,
+                0.9em 0.9em #0000ff,
+                1.0em 1.0em #4b0082,
+                1.1em 1.1em #8f00ff;
     }
 }
 
