@@ -20,6 +20,8 @@ html, body, h1 {
 
     font-size: 18px;
     color: var(--font-color-main);
+
+    overflow-x: hidden;
 }
 
 .body {
@@ -278,8 +280,53 @@ input[type="radio"]:checked + label::before {
 
 audio {
     width: 100%;
+}
 
-    height: 50px;
+#result {
+    font-family: Calibri, sans-serif;
+    padding: 2em 0;
+    background-color: var(--font-color-main);
+}
+
+#result p {
+    font-size: 2em;
+    padding: 0 1em;
+    display: block;
+    transform: translate(-35px, -20px);
+    background: none;
+    color: var(--font-color-second);
+}
+
+#result p:nth-child(1) {
+    font-family: var(--font-1);
+}
+
+#result p:nth-child(2) {
+    font-family: var(--font-2);
+}
+
+#result p:nth-child(3) {
+    font-family: var(--font-3);
+}
+
+#result p:nth-child(4) {
+    font-family: var(--font-4);
+}
+
+#result p:nth-child(5) {
+    font-family: var(--font-3);
+}
+
+#result p:nth-child(6) {
+    font-family: var(--font-2);
+}
+
+#result p:nth-child(7) {
+    font-family: var(--font-1);
+}
+
+video {
+    max-width: 100vw;
 }
 
 @keyframes rainbow-box {
